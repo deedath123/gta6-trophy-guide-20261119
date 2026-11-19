@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide &amp; Tracker — GTA VI, all 55 trophies</title>
+<meta name="description" content="The best GTA 6 trophy guide: all 55 PlayStation 5 trophies with official names, descriptions and grades, cited guides, a platinum roadmap, missable flags, a spoiler-safe tracker and a Platinum Path session planner. Works offline.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="mast">
+  <h1>Leonida <em>Trophy Guide</em> &amp; Tracker</h1>
+  <p class="sub">Grand Theft Auto VI on PlayStation 5 — all 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze. Every trophy shows its official name, description and grade exactly as PlayStation publishes it, plus a guide in our own words that names its source. No online trophies. About 200 hours to the platinum (PowerPyx, 4/10 difficulty). This guide works fully offline.</p>
+  <div class="progress-wrap" aria-label="Platinum progress">
+    <div class="progress-bar"><i id="bar"></i></div>
+    <div class="progress-line"><span><b id="count">0 / 55</b> trophies earned</span><span id="pct">0%</span><span>Platinum: <b id="plat">Vice Got a Price!</b></span></div>
+    <div class="grade-dots">
+      <span><i class="dot platinum"></i>Platinum <b id="c-plat">0/1</b></span>
+      <span><i class="dot gold"></i>Gold <b id="c-gold">0/2</b></span>
+      <span><i class="dot silver"></i>Silver <b id="c-silver">0/6</b></span>
+      <span><i class="dot bronze"></i>Bronze <b id="c-bronze">0/46</b></span>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="pane missable-banner" id="missable-banner">
+    <h2>⚠ One trophy may be missable</h2>
+    <p><strong>Positive Mental Attitude</strong> — meditate at every spot across Leonida. PowerPyx reports one meditation is offered by Lucia on her balcony in <strong>Chapter 1</strong> only, the morning after the mission Down to Earth, and it is gone once Chapter 1 ends. It is <strong>not confirmed</strong> whether the trophy needs that spot — but do it before Chapter 1 ends, just in case. Keep a manual save at the start of every chapter: there is no mission replay at launch. Everything else can be done in free roam after the story.</p>
+  </section>
+
+  <section class="pane" id="planner">
+    <h2>Platinum Path — session planner</h2>
+    <p>Our one distinguishing hook: the 55 trophies sequenced into story-chapter-ordered play sessions. Work the sessions in order and the tracker tells you what is next.</p>
+    <div id="nextup" aria-live="polite"></div>
+    <div class="roadmap" id="roadmap"></div>
+  </section>
+
+  <section class="pane">
+    <h2>Roadmap to the platinum</h2>
+    <ol>
+      <li><b>Stage 1 — Story (Chapters 1–4 + finale).</b> Play the story, do the stranger strands as they appear, and take the Chapter 1 meditation for Positive Mental Attitude. Story and mission trophies (17) pop as you play.</li>
+      <li><b>Stage 2 — Duo &amp; robbery trophies.</b> Once Jason and Lucia are both playable (Chapter 2), do the partner trophies — Hot Together, Retail Therapy — and the robberies that open in Chapters 3–4: armored trucks, bank vaults, jewelry stores, gang operations.</li>
+      <li><b>Stage 3 — Activities &amp; counters.</b> Shooting Range gold (42), 250 stunts, 20 races, 14 drone-race wins, fishing vs Cal, arcade, bowling, 50 challenges.</li>
+      <li><b>Stage 4 — Collectibles &amp; exploration.</b> 3 card sets (15 of 18 for 100%), 100 WAiNK It locations, 100 vehicles, all 52 Leonida areas, 8 garages, 10 Scooter Bros registrations, 18 meditation spots.</li>
+      <li><b>Stage 5 — 100% &amp; clean-up.</b> Finish the 100% completion checklist (A Long Road, gold), then sweep any counter left over. The platinum pops with the last trophy.</li>
+    </ol>
+    <p>Counts that decide the grind: 397 stunts exist (250 needed), 42 Shooting Range challenges, 18 card sets, 18 meditation spots, 52 areas, 9 gangs, 80 challenges (70 for 100%), 277 vehicles (200 for 100%). Sources: Push Square trophy guide; PowerPyx via GTA Zone.</p>
+  </section>
+
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search trophies by name or guide…" aria-label="Search trophies">
+    <button id="theme" type="button">🌙 Night theme</button>
+    <button id="export" type="button">Export progress</button>
+    <button id="importBtn" type="button">Import progress</button>
+    <input type="file" id="importFile" accept=".json,application/json" hidden>
+    <button id="reset" type="button">Reset tracker</button>
+  </div>
+  <div class="toggles">
+    <label><input type="checkbox" id="spoiler"> Spoiler mode — hide story trophy names &amp; descriptions until earned</label>
+    <label><input type="checkbox" id="hideEarned"> Hide earned</label>
+    <label><input type="checkbox" id="unearnedOnly"> Unearned only</label>
+  </div>
+  <div class="toolbar filters" id="filters" role="group" aria-label="Filter trophies">
+    <button data-f="all" class="on" type="button">All 55</button>
+    <button data-f="story" type="button">Story</button>
+    <button data-f="missable" type="button">Missable</button>
+    <button data-f="collectibles" type="button">Collectibles</button>
+    <button data-f="activities" type="button">Activities</button>
+    <button data-f="online" type="button">Online</button>
+    <button data-f="platinum" type="button">Platinum</button>
+    <button data-f="gold" type="button">Gold</button>
+    <button data-f="silver" type="button">Silver</button>
+    <button data-f="bronze" type="button">Bronze</button>
+  </div>
+
+  <ul class="trophies" id="list"></ul>
+  <p class="empty" id="empty" hidden>No trophies match this filter. There are no online trophies — all 55 are single-player, so the Online filter is empty by design.</p>
+</main>
+<footer>
+  <p>Names, descriptions and grades are the official PlayStation 5 trophy list (via PSNProfiles / Exophase, checked 18 Nov 2026). Guides are written in our own words; each cites its sources beside it. Sources: <a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square</a> · <a href="https://gta-zone.com/news/gta-6-trophies-achievements/">PowerPyx via GTA Zone</a> · <a href="https://www.wikigtavi.com/achievements">WikiGTAVI</a> · <a href="https://www.planetgta6.com/en/gta-6-trophies/">PlanetGTA6</a> · <a href="https://outputlag.com/guides/gta-6-trophy-list/">Output Lag</a> · <a href="https://lfcarry.com/guides/gta-6-platinum-trophy-guide">LFCarry</a>. Unofficial fan guide — not affiliated with Rockstar Games. Progress is saved in your browser (localStorage) and never leaves your device.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

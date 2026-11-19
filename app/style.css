@@ -1,0 +1,81 @@
+/* Leonida Trophy Guide & Tracker — two themes, paper light and night dark.
+   System fonts only; no external requests; no Rockstar artwork. */
+:root {
+  --bg: #f6f3ee; --pane: #ffffff; --pane2: #efe9df; --text: #1d2129;
+  --muted: #6b6f78; --line: #ddd5c6; --accent: #d24e2a; --accent-ink: #ffffff;
+  --gold: #b8860b; --silver: #7d8894; --bronze: #a06a3b; --platinum: #5b7a99;
+  --good: #2e7d4f; --warn: #b3261e; --radius-pane: 14px; --radius-ctl: 6px;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+html[data-theme="dark"] {
+  --bg: #0f1218; --pane: #171c24; --pane2: #1f2530; --text: #edeae4;
+  --muted: #9aa0ab; --line: #2c3340; --accent: #ff6b4a; --accent-ink: #1a0d08;
+  --gold: #e0aa3e; --silver: #aab4c0; --bronze: #d08a4e; --platinum: #8fb4d6;
+  --good: #5cb87f; --warn: #ff8a7a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+header.mast { padding: 28px 20px 12px; max-width: 1080px; margin: 0 auto; }
+header.mast h1 { font-family: var(--serif); font-size: 34px; line-height: 1.1; margin: 0 0 6px; }
+header.mast h1 em { color: var(--accent); font-style: normal; }
+header.mast p.sub { color: var(--muted); margin: 0 0 14px; max-width: 70ch; }
+.progress-wrap { background: var(--pane); border: 1px solid var(--line); border-radius: var(--radius-pane); padding: 14px 16px; }
+.progress-bar { height: 12px; background: var(--pane2); border-radius: 6px; overflow: hidden; }
+.progress-bar i { display: block; height: 100%; background: var(--accent); width: 0%; transition: width .3s; }
+.progress-line { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.progress-line b { color: var(--text); }
+.grade-dots { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; }
+.grade-dots span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot.platinum { background: var(--platinum); } .dot.gold { background: var(--gold); }
+.dot.silver { background: var(--silver); } .dot.bronze { background: var(--bronze); }
+main { max-width: 1080px; margin: 0 auto; padding: 0 20px 60px; }
+section.pane { background: var(--pane); border: 1px solid var(--line); border-radius: var(--radius-pane); padding: 18px; margin-top: 16px; }
+section.pane h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px; }
+section.pane h3 { font-family: var(--serif); font-size: 17px; margin: 14px 0 6px; }
+section.pane p { margin: 6px 0; }
+.missable-banner { border: 2px solid var(--warn); border-radius: var(--radius-pane); padding: 12px 14px; background: var(--pane); }
+.missable-banner strong { color: var(--warn); }
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.toolbar input[type="search"] { flex: 1 1 220px; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--radius-ctl); background: var(--pane); color: var(--text); font: inherit; }
+button, .btn { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--pane); color: var(--text); border-radius: var(--radius-ctl); padding: 8px 12px; }
+button:hover { border-color: var(--accent); }
+button.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.toggles { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 14px; }
+.toggles label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters button { padding: 7px 11px; }
+#nextup { border-left: 4px solid var(--accent); padding: 10px 14px; background: var(--pane2); border-radius: 0 var(--radius-ctl) var(--radius-ctl) 0; }
+#nextup b { font-size: 16px; }
+.roadmap ol { margin: 8px 0; padding-left: 22px; }
+.roadmap li { margin: 6px 0; }
+.roadmap li b { font-family: var(--serif); }
+.session { border: 1px solid var(--line); border-radius: var(--radius-ctl); padding: 10px 12px; margin: 8px 0; }
+.session h4 { margin: 0 0 4px; font-family: var(--serif); font-size: 15px; }
+.session p { margin: 2px 0; font-size: 14px; color: var(--muted); }
+.session p b { color: var(--text); }
+ul.trophies { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+li.trophy { background: var(--pane); border: 1px solid var(--line); border-radius: var(--radius-pane); padding: 14px 16px; }
+li.trophy.earned { border-color: var(--good); }
+li.trophy .row1 { display: flex; gap: 10px; align-items: flex-start; }
+li.trophy input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; cursor: pointer; }
+li.trophy .name { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+li.trophy .meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+li.trophy .desc { font-style: italic; margin: 6px 0; }
+li.trophy .guide { margin: 8px 0; }
+li.trophy .flags { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+.flag { font-size: 12px; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--line); }
+.flag.missable { border-color: var(--warn); color: var(--warn); font-weight: 700; }
+.flag.hidden { color: var(--muted); }
+.flag.count { color: var(--muted); }
+li.trophy .sources { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+li.trophy .sources a { color: var(--accent); }
+li.trophy .spoiler-hidden { color: var(--muted); font-style: italic; }
+details.guidebox { margin-top: 8px; }
+details.guidebox summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.empty { text-align: center; color: var(--muted); padding: 30px 10px; }
+footer { max-width: 1080px; margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: 13px; }
+footer a { color: var(--accent); }
+@media (max-width: 640px) { header.mast h1 { font-size: 26px; } }
